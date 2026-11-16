@@ -1,0 +1,47 @@
+/* ORBITFALL page shell: a dark star-room that frames the canvas. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 800px at 50% 38%, #141d3d 0%, #0a0f24 52%, #04060f 100%);
+  color: #cfe3ff;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 10px 26px;
+}
+
+#stage {
+  text-align: center;
+}
+
+#game-canvas {
+  display: block;
+  width: min(960px, 96vw);
+  height: auto;
+  aspect-ratio: 4 / 3;
+  background: #05070f;
+  border: 2px solid #2b4a7a;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px rgba(20, 40, 80, 0.35), 0 0 46px rgba(64, 156, 255, 0.28), 0 22px 60px rgba(0, 0, 0, 0.65);
+  cursor: crosshair;
+  touch-action: none;
+}
+
+#hint-line {
+  margin-top: 12px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7f9cc4;
+}
