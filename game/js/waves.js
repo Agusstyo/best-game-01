@@ -1,15 +1,20 @@
 // waves.js — the siege plan for ORBITFALL. Eight waves, each louder than
-// the last: more rocks, faster rocks, weaver drones joining from wave 3
-// and splitting boulders from wave 4. Clear wave 8 and the planet holds.
+// the last: more rocks, faster rocks, ice comets streaking in from wave 2,
+// weaver drones joining from wave 3, splitting boulders from wave 4, and
+// on wave 8 the Dreadnought itself — a carrier that has to be destroyed,
+// not just outlasted. Clear wave 8 and the planet holds.
 
 export const TOTAL_WAVES = 8;
 
 export function wavePlan(wave) {
   const n = wave;
+  const bossWave = n >= TOTAL_WAVES;
   return {
-    meteors: 5 + (n - 1) * 2,
+    meteors: bossWave ? 11 : 5 + (n - 1) * 2,
     larges: n >= 4 ? Math.floor((n - 2) / 2) : 0,
-    drones: n >= 3 ? Math.min(6, n - 2) : 0,
+    drones: bossWave ? 2 : n >= 3 ? Math.min(6, n - 2) : 0,
+    comets: n >= 2 ? Math.min(5, n - 1) : 0,
+    boss: bossWave,
     spawnInterval: Math.max(0.55, 1.45 - n * 0.11),
     speedScale: 1 + (n - 1) * 0.07,
     clearBonus: 150 * n,
@@ -27,6 +32,7 @@ export function createWaveDirector() {
     for (let i = 0; i < plan.meteors; i++) list.push(Math.random() < 0.45 ? 'small' : 'medium');
     for (let i = 0; i < plan.larges; i++) list.push('large');
     for (let i = 0; i < plan.drones; i++) list.push('drone');
+    for (let i = 0; i < plan.comets; i++) list.push('comet');
     // Shuffle so kinds arrive mixed, then make sure the first arrival is
     // a plain meteor: every wave should open readable, not chaotic.
     for (let i = list.length - 1; i > 0; i--) {

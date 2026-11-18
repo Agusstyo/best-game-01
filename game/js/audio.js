@@ -91,6 +91,21 @@ export function createSoundBank() {
       noise({ dur: 0.4, vol: 0.65, cutoff: 500, sweepTo: 60 });
       tone({ type: 'sine', from: 90, to: 30, dur: 0.45, vol: 0.7 });
     },
+    shieldHit() {
+      tone({ type: 'square', from: 1180, to: 340, dur: 0.14, vol: 0.22 });
+      noise({ dur: 0.12, vol: 0.2, cutoff: 2600, sweepTo: 700 });
+    },
+    bossAlarm() {
+      tone({ type: 'sawtooth', from: 196, dur: 0.3, vol: 0.3 });
+      tone({ type: 'sawtooth', from: 147, at: 0.32, dur: 0.3, vol: 0.3 });
+      tone({ type: 'sawtooth', from: 196, at: 0.64, dur: 0.42, vol: 0.3 });
+    },
+    bossDown() {
+      noise({ dur: 0.9, vol: 0.6, cutoff: 1400, sweepTo: 60 });
+      tone({ type: 'triangle', from: 220, to: 36, dur: 0.9, vol: 0.5 });
+      tone({ type: 'sine', from: 880, at: 0.55, dur: 0.3, vol: 0.25 });
+      tone({ type: 'sine', from: 1174, at: 0.75, dur: 0.4, vol: 0.25 });
+    },
     pickup() {
       tone({ type: 'sine', from: 660, dur: 0.09, vol: 0.3 });
       tone({ type: 'sine', from: 990, at: 0.07, dur: 0.14, vol: 0.3 });
