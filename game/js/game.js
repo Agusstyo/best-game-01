@@ -377,10 +377,10 @@ export class Game {
     const big = e.kind === 'large' || e.type === 'drone';
     const burstColor = e.type === 'drone' || e.type === 'bolt' ? '#ff9dbd' : e.type === 'comet' ? '#aef4ff' : '#ffb37a';
     const debrisColor = e.type === 'meteor' ? '#8a6a52' : e.type === 'comet' ? '#7fc8e8' : '#c2456e';
-    createSparkBurst(this.sparks, e.x, e.y, burstColor, big ? 22 : 12, big ? 260 : 200);
-    createSparkBurst(this.sparks, e.x, e.y, '#fff3c9', 6, 150);
-    this.shockwaves.push(createShockwave(e.x, e.y, burstColor, e.radius * (big ? 3.4 : 2.4)));
-    createDebrisBurst(this.debris, e.x, e.y, debrisColor, big ? 7 : 4, big ? 190 : 140);
+    createSparkBurst(this.sparks, e.x, e.y, burstColor, big ? 30 : 17, big ? 260 : 200);
+    createSparkBurst(this.sparks, e.x, e.y, '#fff3c9', 8, 150);
+    this.shockwaves.push(createShockwave(e.x, e.y, burstColor, e.radius * (big ? 3.8 : 2.7)));
+    createDebrisBurst(this.debris, e.x, e.y, debrisColor, big ? 9 : 5, big ? 190 : 140);
     if (big) this.freeze = Math.max(this.freeze, 0.045);
     this.texts.push(createFloatText(e.x, e.y - e.radius - 6, `+${gained}`, '#ffe9a8'));
     if (this.combo > 0 && this.combo % 10 === 0) {

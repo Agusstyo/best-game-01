@@ -10,12 +10,12 @@ export function wavePlan(wave) {
   const n = wave;
   const bossWave = n >= TOTAL_WAVES;
   return {
-    meteors: bossWave ? 11 : 5 + (n - 1) * 2,
+    meteors: bossWave ? 11 : 6 + (n - 1) * 2,
     larges: n >= 4 ? Math.floor((n - 2) / 2) : 0,
     drones: bossWave ? 2 : n >= 3 ? Math.min(6, n - 2) : 0,
     comets: n >= 2 ? Math.min(5, n - 1) : 0,
     boss: bossWave,
-    spawnInterval: Math.max(0.55, 1.45 - n * 0.11),
+    spawnInterval: Math.max(0.55, 1.28 - n * 0.09),
     speedScale: 1 + (n - 1) * 0.07,
     clearBonus: 150 * n,
   };
@@ -49,7 +49,7 @@ export function createWaveDirector() {
       const built = buildQueue(wave);
       queue = built.list;
       interval = built.plan.spawnInterval;
-      timer = 0.35;
+      timer = 0.12;
       return built.plan;
     },
     // Returns the next spawn kind when its moment comes, else null.

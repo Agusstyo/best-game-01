@@ -29,7 +29,7 @@ export function createDreadnought(cx, cy) {
     strafeDir: Math.random() > 0.5 ? 1 : -1,
     strafeTimer: 5 + Math.random() * 3,
     droneTimer: 2.4,
-    boltTimer: 3.4,
+    boltTimer: 2.6,
     entered: false,
     flash: 0,
     age: 0,
@@ -59,12 +59,12 @@ export function stepDreadnought(boss, dt, cx, cy) {
     boss.dist = BOSS_STATS.orbitRadius + Math.sin(boss.age * 0.45) * 26;
     boss.droneTimer -= dt;
     if (boss.droneTimer <= 0) {
-      boss.droneTimer = 3.1 + Math.random() * 0.8;
+      boss.droneTimer = 2.7 + Math.random() * 0.7;
       events.launchDrone = true;
     }
     boss.boltTimer -= dt;
     if (boss.boltTimer <= 0) {
-      boss.boltTimer = 4.1 + Math.random() * 0.9;
+      boss.boltTimer = 3.5 + Math.random() * 0.8;
       events.fireBolts = true;
     }
   }
